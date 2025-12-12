@@ -1,0 +1,13 @@
+# robots.txt for mertis.dev
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://mertis.dev/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 0
+
+# Disallow nothing - allow all pages
+

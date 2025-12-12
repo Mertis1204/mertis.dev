@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact",
+    "cv": "Download CV"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "title": "Senior Fullstack Developer",
+    "subtitle": "Expert in high-performance distributed systems and enterprise solutions",
+    "cta": {
+      "primary": "View Projects",
+      "secondary": "Get In Touch"
+    }
+  },
+  "about": {
+    "title": "About",
+    "description": "Senior Fullstack Engineer with proven track record of managing game infrastructures with 1M+ users and building enterprise B2B ecosystems.",
+    "readMore": "Read More",
+    "readLess": "Show Less"
+  },
+  "experience": {
+    "title": "Experience",
+    "current": "Current",
+    "previous": "Previous"
+  },
+  "projects": {
+    "title": "Projects",
+    "viewProject": "View Project",
+    "viewCode": "View Code",
+    "status": {
+      "production": "Production",
+      "live": "Live",
+      "development": "In Development",
+      "archived": "Archived"
+    },
+    "type": {
+      "enterprise": "Enterprise",
+      "infrastructure": "Infrastructure",
+      "openSource": "Open Source",
+      "personal": "Personal"
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "database": "Database",
+    "devops": "DevOps"
+  },
+  "contact": {
+    "title": "Contact",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
+    "getInTouch": "Get In Touch",
+    "copyEmail": "Copy Email Address",
+    "emailCopied": "Email address copied!"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "download": "Download",
+    "copy": "Copy",
+    "copied": "Copied!"
+  },
+  "commandPalette": {
+    "placeholder": "Search commands...",
+    "noResults": "No results found",
+    "sections": {
+      "navigation": "Navigation",
+      "actions": "Actions",
+      "links": "Links"
+    }
+  },
+  "theme": {
+    "toggle": "Toggle Theme",
+    "dark": "Dark Mode",
+    "light": "Light Mode",
+    "system": "System Theme"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "builtWith": "Built with"
+  }
+}
+

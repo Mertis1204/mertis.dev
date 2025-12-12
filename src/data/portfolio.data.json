@@ -1,0 +1,115 @@
+{
+  "personal": {
+    "name": "Mert İs",
+    "title": "Senior Fullstack Developer",
+    "location": "İstanbul, Türkiye",
+    "email": "mertisresmi@gmail.com",
+    "phone": "+90 536 262 02 71",
+    "socials": {
+      "github": "https://github.com/Mertis1204",
+      "linkedin": "https://www.linkedin.com/in/mertis/"
+    },
+    "about": "Senior Fullstack Engineer specializing in high-performance distributed systems. Proven track record of managing game infrastructures with 1M+ users and building enterprise B2B ecosystems. Expert in scaling Node.js architectures and optimizing Linux/Docker environments."
+  },
+  "experience": [
+    {
+      "company": "Waytogo",
+      "role": "Full Stack Developer",
+      "period": "07/2024 – 11/2024",
+      "description": "Architected Moodle plugins and HubSpot API integrations. Modernized legacy web components using Mustache templating and SCSS, significantly improving maintainability.",
+      "current": false
+    },
+    {
+      "company": "Betacraft",
+      "role": "Founder & CEO (Lead Engineer)",
+      "period": "01/2016 – 07/2024",
+      "description": "Engineered a massive-scale Minecraft gaming infrastructure serving 1M+ registered users with 1,300+ concurrent connections. Managed bare-metal Linux servers, Docker containerization, and JVM optimization for peak performance.",
+      "current": false
+    },
+    {
+      "company": "Hamlet Games",
+      "role": "QA & Game Tester",
+      "period": "08/2022 – 11/2022",
+      "description": "Conducted rigorous QA testing and UX analysis to optimize player retention mechanics.",
+      "current": false
+    },
+    {
+      "company": "Nar Sistem",
+      "role": "Backend Intern",
+      "period": "08/2022",
+      "description": "Backend development using Java Spring Boot ecosystem.",
+      "current": false
+    }
+  ],
+  "education": {
+    "university": "İstanbul Gedik Üniversitesi",
+    "degree": "Computer Engineering (B.Sc.)",
+    "years": "2021 – 2025"
+  },
+  "projects": [
+    {
+      "title": "Doğan Otomotiv B2B Ecosystem",
+      "tech": ["Next.js 15", "TypeScript", "MySQL 8.0", "Express.js", "Redis", "JWT"],
+      "type": "Enterprise",
+      "description": "A fully dynamic, production-grade B2B platform. Features a custom-built Admin Panel (HR, Blog, XML Product Integration), role-based access control (RBAC), and advanced security measures (Helmet, Rate Limiting).",
+      "status": "Production",
+      "link": null
+    },
+    {
+      "title": "Betacraft Infrastructure",
+      "tech": ["Java", "Linux", "Docker", "Nginx", "Bash Scripting"],
+      "type": "Infrastructure",
+      "description": "High-concurrency game server cluster architecture optimized for low-latency TCP/UDP packet handling.",
+      "status": "Live",
+      "link": null
+    },
+    {
+      "title": "Enterprise Portfolio Platform",
+      "tech": ["Next.js 15", "TypeScript", "Tailwind CSS 4", "Framer Motion", "Zod"],
+      "type": "Personal",
+      "description": "FAANG-standard portfolio platform with enterprise-grade architecture, i18n support, dark/light mode, and perfect Lighthouse scores.",
+      "status": "Development",
+      "link": "https://mertis.dev"
+    }
+  ],
+  "skills": {
+    "frontend": [
+      "Next.js 15",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS 4",
+      "Framer Motion",
+      "Vue.js",
+      "HTML5",
+      "CSS3",
+      "JavaScript ES6+"
+    ],
+    "backend": [
+      "Node.js",
+      "Express.js",
+      "Java (Spring Boot)",
+      "PHP",
+      "Python",
+      "REST API",
+      "GraphQL",
+      "WebSocket"
+    ],
+    "database": [
+      "MySQL",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "SQLite"
+    ],
+    "devops": [
+      "Docker",
+      "Linux (RHEL/Ubuntu)",
+      "CI/CD",
+      "Nginx",
+      "Git",
+      "GitHub Actions",
+      "Bash Scripting"
+    ]
+  }
+}
+

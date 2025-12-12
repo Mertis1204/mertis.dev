@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "about": "Hakkımda",
+    "experience": "Deneyim",
+    "projects": "Projeler",
+    "skills": "Yetenekler",
+    "contact": "İletişim",
+    "cv": "CV İndir"
+  },
+  "hero": {
+    "greeting": "Merhaba, ben",
+    "title": "Senior Fullstack Developer",
+    "subtitle": "Yüksek performanslı dağıtık sistemler ve enterprise çözümler konusunda uzman",
+    "cta": {
+      "primary": "Projelerimi İncele",
+      "secondary": "İletişime Geç"
+    }
+  },
+  "about": {
+    "title": "Hakkımda",
+    "description": "1M+ kullanıcılı oyun altyapıları yönetimi ve enterprise B2B ekosistemleri geliştirme konusunda kanıtlanmış başarı geçmişine sahip Senior Fullstack Engineer.",
+    "readMore": "Devamını Oku",
+    "readLess": "Daha Az Göster"
+  },
+  "experience": {
+    "title": "Deneyim",
+    "current": "Şu An",
+    "previous": "Önceki"
+  },
+  "projects": {
+    "title": "Projeler",
+    "viewProject": "Projeyi Görüntüle",
+    "viewCode": "Kodu Görüntüle",
+    "status": {
+      "production": "Üretimde",
+      "live": "Canlı",
+      "development": "Geliştirme Aşamasında",
+      "archived": "Arşivlendi"
+    },
+    "type": {
+      "enterprise": "Kurumsal",
+      "infrastructure": "Altyapı",
+      "openSource": "Açık Kaynak",
+      "personal": "Kişisel"
+    }
+  },
+  "skills": {
+    "title": "Yetenekler",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "database": "Veritabanı",
+    "devops": "DevOps"
+  },
+  "contact": {
+    "title": "İletişim",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "location": "Konum",
+    "getInTouch": "İletişime Geçin",
+    "copyEmail": "E-posta Adresini Kopyala",
+    "emailCopied": "E-posta adresi kopyalandı!"
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu",
+    "download": "İndir",
+    "copy": "Kopyala",
+    "copied": "Kopyalandı!"
+  },
+  "commandPalette": {
+    "placeholder": "Komut ara...",
+    "noResults": "Sonuç bulunamadı",
+    "sections": {
+      "navigation": "Navigasyon",
+      "actions": "İşlemler",
+      "links": "Bağlantılar"
+    }
+  },
+  "theme": {
+    "toggle": "Tema Değiştir",
+    "dark": "Koyu Mod",
+    "light": "Açık Mod",
+    "system": "Sistem Teması"
+  },
+  "footer": {
+    "rights": "Tüm hakları saklıdır.",
+    "builtWith": "ile yapıldı"
+  }
+}
+

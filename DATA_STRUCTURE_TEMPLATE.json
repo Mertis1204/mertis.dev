@@ -1,0 +1,185 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Portfolio Data Structure",
+  "description": "Type-safe portfolio data structure for mertis.dev",
+  "type": "object",
+  "required": ["personal", "experience", "education", "projects", "skills"],
+  "properties": {
+    "personal": {
+      "type": "object",
+      "required": ["name", "title", "location", "email", "phone", "socials", "about"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Full name (e.g., 'Mert İs')",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "description": "Professional title (e.g., 'Senior Fullstack Developer')"
+        },
+        "location": {
+          "type": "string",
+          "description": "Location (e.g., 'İstanbul, Türkiye')"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Email address (will be obfuscated in UI)"
+        },
+        "phone": {
+          "type": "string",
+          "pattern": "^\\+?\\d[\\d\\s-]+$",
+          "description": "Phone number in international format"
+        },
+        "socials": {
+          "type": "object",
+          "required": ["github", "linkedin"],
+          "properties": {
+            "github": {
+              "type": "string",
+              "format": "uri",
+              "description": "GitHub profile URL"
+            },
+            "linkedin": {
+              "type": "string",
+              "format": "uri",
+              "description": "LinkedIn profile URL"
+            }
+          },
+          "additionalProperties": false
+        },
+        "about": {
+          "type": "string",
+          "description": "Professional summary/bio",
+          "minLength": 50
+        }
+      },
+      "additionalProperties": false
+    },
+    "experience": {
+      "type": "array",
+      "description": "Work experience entries (chronological order, newest first)",
+      "items": {
+        "type": "object",
+        "required": ["company", "role", "period", "description"],
+        "properties": {
+          "company": {
+            "type": "string",
+            "description": "Company name"
+          },
+          "role": {
+            "type": "string",
+            "description": "Job title/role"
+          },
+          "period": {
+            "type": "string",
+            "description": "Employment period (e.g., '07/2024 – 11/2024')"
+          },
+          "description": {
+            "type": "string",
+            "description": "Job description and achievements"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "education": {
+      "type": "object",
+      "required": ["university", "degree", "years"],
+      "properties": {
+        "university": {
+          "type": "string",
+          "description": "University name"
+        },
+        "degree": {
+          "type": "string",
+          "description": "Degree type and field (e.g., 'Computer Engineering (B.Sc.)')"
+        },
+        "years": {
+          "type": "string",
+          "description": "Education period (e.g., '2021 – 2025')"
+        }
+      },
+      "additionalProperties": false
+    },
+    "projects": {
+      "type": "array",
+      "description": "Notable projects",
+      "items": {
+        "type": "object",
+        "required": ["title", "tech", "type", "description", "status"],
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Project name"
+          },
+          "tech": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Technologies used"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["Enterprise", "Infrastructure", "Open Source", "Personal"],
+            "description": "Project category"
+          },
+          "description": {
+            "type": "string",
+            "description": "Project description"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["Production", "Live", "Development", "Archived"],
+            "description": "Current project status"
+          },
+          "link": {
+            "type": ["string", "null"],
+            "format": "uri",
+            "description": "Project URL (optional, null if private/NDA)"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "skills": {
+      "type": "object",
+      "required": ["frontend", "backend", "database", "devops"],
+      "properties": {
+        "frontend": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Frontend technologies"
+        },
+        "backend": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Backend technologies"
+        },
+        "database": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Database technologies"
+        },
+        "devops": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "DevOps tools and practices"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
+
