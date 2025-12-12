@@ -6,13 +6,19 @@
 
 'use client';
 
-import { ThemeToggle } from '@/components/features/ThemeToggle';
+import dynamic from 'next/dynamic';
 import { LanguageSwitcher } from '@/components/features/LanguageSwitcher';
 import { type Locale } from '@/i18n/config';
 import { getMessages } from '@/i18n/loader';
 import { cn } from '@/lib/cn';
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+
+// Dynamic import to avoid SSR issues with ThemeProvider
+const ThemeToggle = dynamic(
+  () => import('@/components/features/ThemeToggle').then((mod) => ({ default: mod.ThemeToggle })),
+  { ssr: false }
+);
 
 interface HeaderProps {
   locale: Locale;
@@ -51,13 +57,13 @@ export function Header({ locale }: HeaderProps) {
 
   return (
     <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, type: 'spring', stiffness: 100 }}
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
         isScrolled
-          ? 'bg-surface/80 backdrop-blur-xl border-b border-border shadow-lg'
+          ? 'bg-surface/90 backdrop-blur-2xl border-b border-border shadow-2xl'
           : 'bg-transparent'
       )}
     >

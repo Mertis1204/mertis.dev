@@ -95,25 +95,23 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
   return (
     <html lang={locale} className={inter.variable} suppressHydrationWarning>
       <head>
-        {/* Inline script to prevent FOUC (Flash of Unstyled Content) */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                const theme = localStorage.getItem('theme') || 'system';
-                const resolvedTheme = theme === 'system'
-                  ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
-                  : theme;
-                document.documentElement.classList.add(resolvedTheme);
-              })();
-            `,
-          }}
-        />
         {/* Color scheme meta tag */}
         <meta name="color-scheme" content="dark light" />
+        {/* FOUC prevention - inline blocking script */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme')||'system';var r=t==='system'?(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):t;document.documentElement.classList.add(r);}catch(e){}})();`,
+          }}
+        />
       </head>
-      <body className="min-h-screen antialiased">
+      <body className="min-h-screen antialiased bg-background text-text-primary">
         <ThemeProvider defaultTheme="system">
+          {/* Animated gradient background */}
+          <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+            <div className="absolute top-0 -left-1/4 w-1/2 h-1/2 bg-accent-primary/10 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-0 -right-1/4 w-1/2 h-1/2 bg-accent-secondary/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          </div>
+
           {/* Noise texture overlay */}
           <div className="noise-overlay" aria-hidden="true">
             <svg width="100%" height="100%">
@@ -127,7 +125,7 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
           {/* Skip to main content link for accessibility */}
           <a
             href="#main-content"
-            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-accent-primary focus:text-white focus:rounded-lg"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-accent-primary focus:text-white focus:rounded-lg shadow-lg"
           >
             Skip to main content
           </a>

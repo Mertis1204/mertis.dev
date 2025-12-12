@@ -24,13 +24,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variantStyles = {
       primary:
-        'bg-accent-primary text-white hover:bg-accent-primary/90 active:scale-95 shadow-lg shadow-accent-primary/20',
+        'bg-accent-primary text-white hover:bg-accent-primary/90 active:scale-[0.98] shadow-xl shadow-accent-primary/30 hover:shadow-2xl hover:shadow-accent-primary/40 relative overflow-hidden group',
       secondary:
-        'bg-accent-secondary text-white hover:bg-accent-secondary/90 active:scale-95 shadow-lg shadow-accent-secondary/20',
+        'bg-accent-secondary text-white hover:bg-accent-secondary/90 active:scale-[0.98] shadow-xl shadow-accent-secondary/30 hover:shadow-2xl hover:shadow-accent-secondary/40',
       ghost:
-        'bg-transparent text-text-primary hover:bg-surface active:scale-95 border border-border',
+        'bg-transparent text-text-primary hover:bg-surface/80 active:scale-[0.98] border border-border hover:border-accent-primary/50',
       outline:
-        'bg-transparent border-2 border-accent-primary text-accent-primary hover:bg-accent-primary hover:text-white active:scale-95',
+        'bg-transparent border-2 border-accent-primary text-accent-primary hover:bg-accent-primary hover:text-white active:scale-[0.98] hover:shadow-lg hover:shadow-accent-primary/30',
     };
 
     const sizeStyles = {

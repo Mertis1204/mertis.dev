@@ -4,7 +4,7 @@
   "description": "Enterprise-grade portfolio platform for Mert İs - Senior Fullstack Developer",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

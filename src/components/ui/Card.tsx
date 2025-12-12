@@ -16,13 +16,13 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
 export const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ children, className, hover = true, glass = true, ...props }, ref) => {
     const baseStyles =
-      'rounded-xl p-6 border border-border bg-surface transition-all duration-300';
+      'rounded-2xl p-6 border border-border bg-surface transition-all duration-500 ease-out';
 
     const hoverStyles = hover
-      ? 'hover:scale-[1.02] hover:shadow-xl hover:border-accent-primary/50'
+      ? 'hover:scale-[1.02] hover:shadow-2xl hover:border-accent-primary/60 hover:-translate-y-1'
       : '';
 
-    const glassStyles = glass ? 'glass' : '';
+    const glassStyles = glass ? 'glass-premium' : '';
 
     return (
       <div

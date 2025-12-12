@@ -64,21 +64,28 @@ export function Projects({ locale }: ProjectsProps) {
             {t.projects.title}
           </h2>
 
-          {/* Bento Grid Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Enhanced Bento Grid Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-auto">
             {portfolioData.projects.map((project, index) => (
               <motion.div
                 key={`${project.title}-${index}`}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: index * 0.1,
+                  type: 'spring',
+                  stiffness: 100
+                }}
                 className={cn(
-                  // First project spans 2 columns on larger screens
-                  index === 0 && 'md:col-span-2 lg:col-span-2'
+                  // First project is featured - larger
+                  index === 0 && 'md:col-span-2 lg:col-span-2 md:row-span-2',
+                  // Add random heights for more dynamic grid
+                  index === 2 && 'lg:row-span-2'
                 )}
               >
-                <Card className="h-full flex flex-col">
+                <Card className="h-full flex flex-col group overflow-hidden relative">
                   <CardHeader>
                     <div className="flex items-start justify-between gap-4 mb-3">
                       <CardTitle>{project.title}</CardTitle>

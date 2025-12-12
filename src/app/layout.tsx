@@ -1,8 +1,17 @@
-import { redirect } from 'next/navigation';
-import { defaultLocale } from '@/i18n/config';
+/**
+ * Root Layout
+ * Minimal root layout - locale-specific layouts handle the rest
+ */
 
-export default function RootLayout() {
-  // Redirect root to default locale
-  redirect(`/${defaultLocale}`);
+import { type ReactNode } from 'react';
+
+interface RootLayoutProps {
+  children: ReactNode;
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
+  // Root layout should not render HTML structure
+  // Let locale layout handle it
+  return children;
 }
 
