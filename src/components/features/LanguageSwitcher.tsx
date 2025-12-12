@@ -6,7 +6,7 @@
 
 'use client';
 
-import { locales, localeNames, type Locale } from '@/i18n/config';
+import { locales, type Locale } from '@/i18n/config';
 import { cn } from '@/lib/cn';
 import { useRouter, usePathname } from 'next/navigation';
 import { useState } from 'react';

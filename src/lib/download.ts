@@ -36,8 +36,6 @@ export function downloadFile(filepath: string, options: DownloadOptions): void {
     if (analytics) {
       trackDownload(filename, type);
     }
-
-    console.log(`✅ Download started: ${filename}`);
   } catch (error) {
     console.error('❌ Download failed:', error);
     throw new Error('Failed to download file');
@@ -72,12 +70,15 @@ export function downloadCV(locale: 'tr' | 'en'): void {
  * Track download events (can be extended with Google Analytics, Plausible, etc.)
  */
 function trackDownload(filename: string, type: DownloadType): void {
-  // Log to console for development
-  console.log(`📊 Download tracked: ${filename} (${type})`);
-
-  // You can extend this with real analytics:
+  // Track download event (can be extended with Google Analytics, Plausible, etc.)
+  // For now, we silently track - extend with real analytics if needed:
   // gtag('event', 'download', { filename, type });
   // plausible('Download', { props: { filename, type } });
+  
+  // Development only - remove in production or use console.warn
+  if (process.env.NODE_ENV === 'development') {
+    console.warn(`📊 Download tracked: ${filename} (${type})`);
+  }
 }
 
 /**

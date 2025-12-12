@@ -81,7 +81,7 @@ export function Hero({ locale }: HeroProps) {
             <span className="text-white/90 text-sm">.</span>
             <span className="text-[#dcdcaa] font-semibold text-sm">log</span>
             <span className="text-[#ffd700] text-sm">(</span>
-            <span className="text-[#ce9178] text-sm">"{t.hero.greeting}"</span>
+            <span className="text-[#ce9178] text-sm">&quot;{t.hero.greeting}&quot;</span>
             <span className="text-[#ffd700] text-sm">)</span>
             <span className="text-white/60 text-sm">;</span>
           </div>
