@@ -1,0 +1,19 @@
+{
+  "name": "mertis-dev",
+  "version": "1.0.0",
+  "description": "Kişisel web sitesi",
+  "main": "index.js",
+  "scripts": {
+    "dev": "echo 'Development server başlatılacak'",
+    "build": "echo 'Build işlemi yapılacak'",
+    "start": "echo 'Production server başlatılacak'"
+  },
+  "keywords": [
+    "portfolio",
+    "website",
+    "personal"
+  ],
+  "author": "Mert İs",
+  "license": "MIT"
+}
+
