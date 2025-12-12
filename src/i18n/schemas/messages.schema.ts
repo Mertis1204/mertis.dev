@@ -27,6 +27,8 @@ export const MessagesSchema = z.object({
       primary: z.string(),
       secondary: z.string(),
     }),
+    availability: z.string(),
+    scroll: z.string(),
   }),
 
   // About Section
@@ -60,6 +62,7 @@ export const MessagesSchema = z.object({
       infrastructure: z.string(),
       openSource: z.string(),
       personal: z.string(),
+      startup: z.string(),
     }),
   }),
 

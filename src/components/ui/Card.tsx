@@ -16,13 +16,13 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
 export const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ children, className, hover = true, glass = true, ...props }, ref) => {
     const baseStyles =
-      'rounded-2xl p-6 border border-border bg-surface transition-all duration-500 ease-out';
+      'rounded-2xl p-6 border bg-surface transition-all duration-300 ease-out shadow-sm';
 
     const hoverStyles = hover
-      ? 'hover:scale-[1.02] hover:shadow-2xl hover:border-accent-primary/60 hover:-translate-y-1'
+      ? 'hover:shadow-xl hover:-translate-y-1'
       : '';
 
-    const glassStyles = glass ? 'glass-premium' : '';
+    const glassStyles = glass ? 'backdrop-blur-sm' : '';
 
     return (
       <div
@@ -43,7 +43,7 @@ Card.displayName = 'Card';
  */
 export const CardHeader = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => {
-    return <div ref={ref} className={cn('mb-4', className)} {...props} />;
+    return <div ref={ref} className={cn('mb-3', className)} {...props} />;
   }
 );
 
@@ -57,7 +57,7 @@ export const CardTitle = forwardRef<HTMLHeadingElement, HTMLAttributes<HTMLHeadi
     return (
       <h3
         ref={ref}
-        className={cn('text-xl font-semibold text-text-primary', className)}
+        className={cn('text-xl font-bold text-text-primary leading-tight', className)}
         {...props}
       />
     );
@@ -71,7 +71,7 @@ CardTitle.displayName = 'CardTitle';
  */
 export const CardContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => {
-    return <div ref={ref} className={cn('text-text-secondary', className)} {...props} />;
+    return <div ref={ref} className={cn('text-text-secondary py-2', className)} {...props} />;
   }
 );
 
@@ -82,7 +82,7 @@ CardContent.displayName = 'CardContent';
  */
 export const CardFooter = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => {
-    return <div ref={ref} className={cn('mt-4 pt-4 border-t border-border', className)} {...props} />;
+    return <div ref={ref} className={cn('mt-auto pt-4 border-t border-border/50', className)} {...props} />;
   }
 );
 

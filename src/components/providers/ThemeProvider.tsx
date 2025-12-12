@@ -106,11 +106,7 @@ export function ThemeProvider({
     setTheme,
   };
 
-  // Prevent hydration mismatch by not rendering until mounted
-  if (!mounted) {
-    return <>{children}</>;
-  }
-
+  // Always provide context, even before mount to prevent errors
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }
 

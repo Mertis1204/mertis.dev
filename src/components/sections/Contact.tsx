@@ -12,7 +12,9 @@ import { ExternalLink } from '@/components/ui/ExternalLink';
 import { portfolioData } from '@/data/portfolio';
 import { type Locale } from '@/i18n/config';
 import { getMessages } from '@/i18n/loader';
+import { downloadCV } from '@/lib/download';
 import { motion } from 'framer-motion';
+import { Download, FileText } from 'lucide-react';
 
 interface ContactProps {
   locale: Locale;
@@ -35,27 +37,6 @@ export function Contact({ locale }: ContactProps) {
       ),
       label: t.contact.email,
       value: <EmailObfuscator email={portfolioData.personal.email} copyText={t.contact.copyEmail} copiedText={t.contact.emailCopied} />,
-    },
-    {
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-          />
-        </svg>
-      ),
-      label: t.contact.phone,
-      value: (
-        <a
-          href={`tel:${portfolioData.personal.phone}`}
-          className="text-text-primary hover:text-accent-primary transition-colors"
-        >
-          {portfolioData.personal.phone}
-        </a>
-      ),
     },
     {
       icon: (
@@ -105,21 +86,37 @@ export function Contact({ locale }: ContactProps) {
   ];
 
   return (
-    <section id="contact" className="py-20 px-4">
+    <section id="contact" className="py-24 px-4">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
+          className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-text-primary">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-block px-4 py-2 rounded-full bg-accent-secondary/10 border border-accent-secondary/20 mb-4"
+          >
+            <span className="text-sm font-semibold text-accent-secondary">Get In Touch</span>
+          </motion.div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-4">
             {t.contact.title}
           </h2>
-          <p className="text-center text-text-secondary text-lg mb-12">{t.contact.getInTouch}</p>
+          <p className="text-lg text-text-secondary max-w-2xl mx-auto">{t.contact.getInTouch}</p>
+        </motion.div>
 
-          <Card>
-            <CardContent className="space-y-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <Card className="border-2">
+            <CardContent className="space-y-4">
               {/* Contact Methods */}
               {contactMethods.map((method, index) => (
                 <motion.div
@@ -128,22 +125,55 @@ export function Contact({ locale }: ContactProps) {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex items-start gap-4 p-4 rounded-lg hover:bg-surface/50 transition-colors"
+                  className="flex items-start gap-4 p-5 rounded-xl hover:bg-surface-hover transition-all border border-transparent hover:border-border group"
                 >
-                  <div className="p-2 rounded-lg bg-accent-primary/10 text-accent-primary shrink-0">
+                  <div className="p-3 rounded-xl bg-gradient-to-br from-accent-primary/10 to-accent-secondary/10 text-accent-primary shrink-0 group-hover:scale-110 transition-transform">
                     {method.icon}
                   </div>
                   <div className="flex-grow">
-                    <p className="text-sm text-text-tertiary mb-1">{method.label}</p>
-                    <div className="text-text-primary">{method.value}</div>
+                    <p className="text-sm font-semibold text-text-tertiary mb-2">{method.label}</p>
+                    <div className="text-text-primary font-medium">{method.value}</div>
                   </div>
                 </motion.div>
               ))}
 
+              {/* CV Download Section */}
+              <div className="pt-6 border-t-2 border-border">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="relative overflow-hidden flex flex-col sm:flex-row items-center justify-between gap-6 p-8 rounded-2xl bg-gradient-to-br from-accent-primary/10 via-accent-secondary/5 to-accent-tertiary/10 border-2 border-accent-primary/20 hover:border-accent-primary/40 transition-all group"
+                >
+                  {/* Background decoration */}
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-accent-primary/10 to-transparent rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                  
+                  <div className="flex items-center gap-4 relative z-10">
+                    <div className="p-4 rounded-2xl bg-gradient-to-br from-accent-primary to-accent-secondary shadow-lg group-hover:scale-110 transition-transform">
+                      <FileText className="w-7 h-7 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg text-text-primary mb-1">{t.nav.cv}</h3>
+                      <p className="text-sm text-text-secondary">
+                        {locale === 'tr' ? 'CV\'mi indirin ve iletişime geçin' : 'Download my CV and get in touch'}
+                      </p>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => downloadCV(locale)}
+                    className="relative z-10 flex items-center gap-2 px-8 py-4 rounded-xl bg-accent-primary text-white hover:bg-accent-primary/90 transition-all shadow-lg hover:shadow-xl hover:scale-105 font-semibold whitespace-nowrap"
+                  >
+                    <Download className="w-5 h-5" />
+                    <span>{t.nav.cv}</span>
+                  </button>
+                </motion.div>
+              </div>
+
               {/* Social Links */}
-              <div className="pt-6 border-t border-border">
-                <p className="text-sm text-text-tertiary mb-4">{t.commandPalette.sections.links}</p>
-                <div className="flex gap-4">
+              <div className="pt-6 border-t-2 border-border">
+                <p className="text-sm font-semibold text-text-secondary mb-4 uppercase tracking-wider">{t.commandPalette.sections.links}</p>
+                <div className="flex flex-wrap gap-3">
                   {socialLinks.map((social, index) => (
                     <motion.div
                       key={social.name}
@@ -154,11 +184,11 @@ export function Contact({ locale }: ContactProps) {
                     >
                       <ExternalLink
                         href={social.url}
-                        className="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface border border-border hover:border-accent-primary hover:scale-105 transition-all no-underline"
+                        className="flex items-center gap-3 px-5 py-3 rounded-xl bg-surface-secondary border-2 border-border hover:border-accent-primary hover:scale-105 hover:shadow-lg transition-all no-underline group"
                         aria-label={social.name}
                       >
-                        <span className="text-text-primary">{social.icon}</span>
-                        <span className="text-text-primary">{social.name}</span>
+                        <span className="text-text-primary group-hover:text-accent-primary transition-colors">{social.icon}</span>
+                        <span className="text-text-primary font-semibold group-hover:text-accent-primary transition-colors">{social.name}</span>
                       </ExternalLink>
                     </motion.div>
                   ))}

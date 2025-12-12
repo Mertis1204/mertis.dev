@@ -17,7 +17,13 @@ export const PersonalSchema = z.object({
     github: z.string().url('Invalid GitHub URL'),
     linkedin: z.string().url('Invalid LinkedIn URL'),
   }),
-  about: z.string().min(50, 'About section too short'),
+  about: z.union([
+    z.string().min(50, 'About section too short'),
+    z.object({
+      en: z.string().min(50, 'English about section too short'),
+      tr: z.string().min(50, 'Turkish about section too short'),
+    }),
+  ]),
 });
 
 // Experience Schema
@@ -25,14 +31,26 @@ export const ExperienceSchema = z.object({
   company: z.string().min(1, 'Company name is required'),
   role: z.string().min(1, 'Role is required'),
   period: z.string().min(1, 'Period is required'),
-  description: z.string().min(10, 'Description is required'),
+  description: z.union([
+    z.string().min(10, 'Description is required'),
+    z.object({
+      en: z.string().min(10, 'English description is required'),
+      tr: z.string().min(10, 'Turkish description is required'),
+    }),
+  ]),
   current: z.boolean().default(false),
 });
 
 // Education Schema
 export const EducationSchema = z.object({
   university: z.string().min(1, 'University name is required'),
-  degree: z.string().min(1, 'Degree is required'),
+  degree: z.union([
+    z.string().min(1, 'Degree is required'),
+    z.object({
+      en: z.string().min(1, 'English degree is required'),
+      tr: z.string().min(1, 'Turkish degree is required'),
+    }),
+  ]),
   years: z.string().min(1, 'Years are required'),
 });
 
@@ -40,8 +58,14 @@ export const EducationSchema = z.object({
 export const ProjectSchema = z.object({
   title: z.string().min(1, 'Project title is required'),
   tech: z.array(z.string()).min(1, 'At least one technology is required'),
-  type: z.enum(['Enterprise', 'Infrastructure', 'Open Source', 'Personal']),
-  description: z.string().min(10, 'Description is required'),
+  type: z.enum(['Enterprise', 'Infrastructure', 'Open Source', 'Personal', 'Startup']),
+  description: z.union([
+    z.string().min(10, 'Description is required'),
+    z.object({
+      en: z.string().min(10, 'English description is required'),
+      tr: z.string().min(10, 'Turkish description is required'),
+    }),
+  ]),
   status: z.enum(['Production', 'Live', 'Development', 'Archived']),
   link: z.string().url('Invalid URL').optional().nullable(),
 });

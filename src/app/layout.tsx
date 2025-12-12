@@ -1,6 +1,6 @@
 /**
  * Root Layout
- * Minimal root layout - locale-specific layouts handle the rest
+ * This is required by Next.js but the actual layout is in [locale]/layout.tsx
  */
 
 import { type ReactNode } from 'react';
@@ -10,8 +10,6 @@ interface RootLayoutProps {
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
-  // Root layout should not render HTML structure
-  // Let locale layout handle it
   return children;
 }
 

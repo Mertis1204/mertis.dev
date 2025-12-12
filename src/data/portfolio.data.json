@@ -1,7 +1,7 @@
 {
   "personal": {
     "name": "Mert İs",
-    "title": "Senior Fullstack Developer",
+    "title": "Fullstack Developer",
     "location": "İstanbul, Türkiye",
     "email": "mertisresmi@gmail.com",
     "phone": "+90 536 262 02 71",
@@ -9,41 +9,69 @@
       "github": "https://github.com/Mertis1204",
       "linkedin": "https://www.linkedin.com/in/mertis/"
     },
-    "about": "Senior Fullstack Engineer specializing in high-performance distributed systems. Proven track record of managing game infrastructures with 1M+ users and building enterprise B2B ecosystems. Expert in scaling Node.js architectures and optimizing Linux/Docker environments."
+    "about": {
+      "en": "Fullstack Engineer specializing in high-performance distributed systems. Proven track record of managing game infrastructures with 1M+ users and building enterprise B2B ecosystems. Expert in scaling Node.js architectures and optimizing Linux/Docker environments.",
+      "tr": "Yüksek performanslı dağıtık sistemler ve kurumsal çözümler konusunda uzmanlaşmış Fullstack Engineer. 1M+ kullanıcılı oyun altyapıları yönetimi ve enterprise B2B ekosistemleri geliştirme konusunda kanıtlanmış başarı geçmişine sahip. Node.js mimarilerini ölçeklendirme ve Linux/Docker ortamlarını optimize etme konusunda uzman."
+    }
   },
   "experience": [
+    {
+      "company": "Doğan Otomotiv",
+      "role": "Full Stack Developer",
+      "period": "10/2024 – 12/2024",
+      "description": {
+        "en": "Developed and maintained a production-grade B2B e-commerce platform. Implemented custom admin panel features, integrated XML product feeds, and built role-based access control systems.",
+        "tr": "Üretim seviyesinde B2B e-ticaret platformu geliştirdim ve sürdürdüm. Özel admin panel özellikleri geliştirdim, XML ürün entegrasyonları yaptım ve rol tabanlı erişim kontrol sistemleri inşa ettim."
+      },
+      "current": false
+    },
     {
       "company": "Waytogo",
       "role": "Full Stack Developer",
       "period": "07/2024 – 11/2024",
-      "description": "Architected Moodle plugins and HubSpot API integrations. Modernized legacy web components using Mustache templating and SCSS, significantly improving maintainability.",
+      "description": {
+        "en": "Architected Moodle plugins and HubSpot API integrations. Modernized legacy web components using Mustache templating and SCSS, significantly improving maintainability.",
+        "tr": "Moodle eklentileri ve HubSpot API entegrasyonları tasarladım. Mustache şablonlama ve SCSS kullanarak eski web bileşenlerini modernize ettim, bakım kolaylığını önemli ölçüde artırdım."
+      },
       "current": false
     },
     {
       "company": "Betacraft",
       "role": "Founder & CEO (Lead Engineer)",
       "period": "01/2016 – 07/2024",
-      "description": "Engineered a massive-scale Minecraft gaming infrastructure serving 1M+ registered users with 1,300+ concurrent connections. Managed bare-metal Linux servers, Docker containerization, and JVM optimization for peak performance.",
+      "description": {
+        "en": "Minecraft game server infrastructure. Engineered a massive-scale gaming platform serving 1M+ registered users with 1,300+ concurrent connections. Managed bare-metal Linux servers, Docker containerization, and JVM optimization for peak performance.",
+        "tr": "Minecraft oyun sunucu altyapısı. 1M+ kayıtlı kullanıcıya ve 1,300+ eşzamanlı bağlantıya hizmet veren büyük ölçekli bir oyun platformu tasarladım. Bare-metal Linux sunucuları yönettim, Docker containerization ve JVM optimizasyonu yaptım."
+      },
       "current": false
     },
     {
       "company": "Hamlet Games",
       "role": "QA & Game Tester",
       "period": "08/2022 – 11/2022",
-      "description": "Conducted rigorous QA testing and UX analysis to optimize player retention mechanics.",
+      "description": {
+        "en": "Conducted rigorous QA testing and UX analysis to optimize player retention mechanics.",
+        "tr": "Oyuncu tutma mekaniklerini optimize etmek için kapsamlı QA testleri ve UX analizleri gerçekleştirdim."
+      },
       "current": false
     },
     {
       "company": "Nar Sistem",
       "role": "Backend Intern",
       "period": "08/2022",
-      "description": "Backend development using Java Spring Boot ecosystem.",
+      "description": {
+        "en": "Backend development using Java Spring Boot ecosystem.",
+        "tr": "Java Spring Boot ekosistemi kullanarak backend geliştirme yaptım."
+      },
       "current": false
     }
   ],
   "education": {
     "university": "İstanbul Gedik Üniversitesi",
-    "degree": "Computer Engineering (B.Sc.)",
+    "degree": {
+      "en": "Computer Engineering (B.Sc.)",
+      "tr": "Bilgisayar Mühendisliği (Lisans)"
+    },
     "years": "2021 – 2025"
   },
   "projects": [
@@ -51,15 +79,21 @@
       "title": "Doğan Otomotiv B2B Ecosystem",
       "tech": ["Next.js 15", "TypeScript", "MySQL 8.0", "Express.js", "Redis", "JWT"],
       "type": "Enterprise",
-      "description": "A fully dynamic, production-grade B2B platform. Features a custom-built Admin Panel (HR, Blog, XML Product Integration), role-based access control (RBAC), and advanced security measures (Helmet, Rate Limiting).",
+      "description": {
+        "en": "A fully dynamic, production-grade B2B platform. Features a custom-built Admin Panel (HR, Blog, XML Product Integration), role-based access control (RBAC), and advanced security measures (Helmet, Rate Limiting).",
+        "tr": "Tamamen dinamik, üretim seviyesinde bir B2B platformu. Özel olarak geliştirilmiş Admin Panel (İK, Blog, XML Ürün Entegrasyonu), rol tabanlı erişim kontrolü (RBAC) ve gelişmiş güvenlik önlemleri (Helmet, Rate Limiting) içerir."
+      },
       "status": "Production",
       "link": null
     },
     {
       "title": "Betacraft Infrastructure",
       "tech": ["Java", "Linux", "Docker", "Nginx", "Bash Scripting"],
-      "type": "Infrastructure",
-      "description": "High-concurrency game server cluster architecture optimized for low-latency TCP/UDP packet handling.",
+      "type": "Startup",
+      "description": {
+        "en": "Large-scale Minecraft game server infrastructure serving 1M+ registered users with 1,300+ concurrent connections. Built a distributed cluster architecture with bare-metal Linux servers, Docker containerization for isolated game instances, and custom JVM tuning for optimal performance. Implemented load balancing with Nginx, automated deployment pipelines, and real-time monitoring systems. Optimized TCP/UDP packet handling for minimal latency, ensuring smooth gameplay experience across multiple game modes and custom plugins.",
+        "tr": "1M+ kayıtlı kullanıcıya ve 1,300+ eşzamanlı bağlantıya hizmet veren büyük ölçekli Minecraft oyun sunucu altyapısı. Bare-metal Linux sunucuları ile dağıtık küme mimarisi, izole oyun örnekleri için Docker containerization ve optimal performans için özel JVM ayarlamaları yaptım. Nginx ile yük dengeleme, otomatik deployment pipeline'ları ve gerçek zamanlı izleme sistemleri uyguladım. Minimum gecikme için TCP/UDP paket işlemeyi optimize ettim, birden fazla oyun modu ve özel eklentilerde sorunsuz oyun deneyimi sağladım."
+      },
       "status": "Live",
       "link": null
     },
@@ -67,7 +101,10 @@
       "title": "Enterprise Portfolio Platform",
       "tech": ["Next.js 15", "TypeScript", "Tailwind CSS 4", "Framer Motion", "Zod"],
       "type": "Personal",
-      "description": "FAANG-standard portfolio platform with enterprise-grade architecture, i18n support, dark/light mode, and perfect Lighthouse scores.",
+      "description": {
+        "en": "Team collaboration-focused portfolio platform. Built with modern web technologies, featuring a flexible architecture suitable for team projects.",
+        "tr": "Ekip işbirliği odaklı portfolio platformu. Modern web teknolojileri ile geliştirilmiş, ekip projeleri için uygun esnek bir mimariye sahip."
+      },
       "status": "Development",
       "link": "https://mertis.dev"
     }

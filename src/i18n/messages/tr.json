@@ -9,17 +9,19 @@
     "cv": "CV İndir"
   },
   "hero": {
-    "greeting": "Merhaba, ben",
-    "title": "Senior Fullstack Developer",
-    "subtitle": "Yüksek performanslı dağıtık sistemler ve enterprise çözümler konusunda uzman",
+    "greeting": "Merhaba Dünya",
+    "title": "Fullstack Developer",
+    "subtitle": "Yazılım mimarileri tasarlayan, ölçeklenebilir sistemler kuran ve kullanıcı deneyimini ön planda tutan bir geliştirici",
     "cta": {
       "primary": "Projelerimi İncele",
       "secondary": "İletişime Geç"
-    }
+    },
+    "availability": "İş için müsait",
+    "scroll": "Kaydır"
   },
   "about": {
     "title": "Hakkımda",
-    "description": "1M+ kullanıcılı oyun altyapıları yönetimi ve enterprise B2B ekosistemleri geliştirme konusunda kanıtlanmış başarı geçmişine sahip Senior Fullstack Engineer.",
+    "description": "Yüksek performanslı dağıtık sistemler ve kurumsal çözümler konusunda uzmanlaşmış Fullstack Engineer. 1M+ kullanıcılı oyun altyapıları yönetimi ve enterprise B2B ekosistemleri geliştirme konusunda kanıtlanmış başarı geçmişine sahip. Node.js mimarilerini ölçeklendirme ve Linux/Docker ortamlarını optimize etme konusunda uzman. Modern web teknolojileri ile ölçeklenebilir, güvenli ve kullanıcı odaklı çözümler geliştiriyorum.",
     "readMore": "Devamını Oku",
     "readLess": "Daha Az Göster"
   },
@@ -42,7 +44,8 @@
       "enterprise": "Kurumsal",
       "infrastructure": "Altyapı",
       "openSource": "Açık Kaynak",
-      "personal": "Kişisel"
+      "personal": "Kişisel",
+      "startup": "Girişim"
     }
   },
   "skills": {

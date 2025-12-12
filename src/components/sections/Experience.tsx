@@ -58,7 +58,11 @@ export function Experience({ locale }: ExperienceProps) {
                     <p className="text-text-secondary font-medium mt-2">{exp.company}</p>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-text-secondary leading-relaxed">{exp.description}</p>
+                    <p className="text-text-secondary leading-relaxed">
+                      {typeof exp.description === 'object' 
+                        ? exp.description[locale] 
+                        : exp.description}
+                    </p>
                   </CardContent>
                 </Card>
               </motion.div>

@@ -15,8 +15,15 @@ const config: Config = {
       // Custom color system using CSS variables
       colors: {
         background: 'var(--color-background)',
-        surface: 'var(--color-surface)',
-        border: 'var(--color-border)',
+        surface: {
+          DEFAULT: 'var(--color-surface)',
+          secondary: 'var(--color-surface-secondary)',
+          hover: 'var(--color-surface-hover)',
+        },
+        border: {
+          DEFAULT: 'var(--color-border)',
+          light: 'var(--color-border-light)',
+        },
         text: {
           primary: 'var(--color-text-primary)',
           secondary: 'var(--color-text-secondary)',
@@ -25,6 +32,7 @@ const config: Config = {
         accent: {
           primary: '#3b82f6',
           secondary: '#8b5cf6',
+          tertiary: '#ec4899',
         },
       },
       

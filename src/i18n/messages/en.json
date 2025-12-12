@@ -9,17 +9,19 @@
     "cv": "Download CV"
   },
   "hero": {
-    "greeting": "Hello, I'm",
-    "title": "Senior Fullstack Developer",
+    "greeting": "Hello World",
+    "title": "Fullstack Developer",
     "subtitle": "Expert in high-performance distributed systems and enterprise solutions",
     "cta": {
       "primary": "View Projects",
       "secondary": "Get In Touch"
-    }
+    },
+    "availability": "Available for work",
+    "scroll": "Scroll"
   },
   "about": {
     "title": "About",
-    "description": "Senior Fullstack Engineer with proven track record of managing game infrastructures with 1M+ users and building enterprise B2B ecosystems.",
+    "description": "Fullstack Engineer with proven track record of managing game infrastructures with 1M+ users and building enterprise B2B ecosystems.",
     "readMore": "Read More",
     "readLess": "Show Less"
   },
@@ -42,7 +44,8 @@
       "enterprise": "Enterprise",
       "infrastructure": "Infrastructure",
       "openSource": "Open Source",
-      "personal": "Personal"
+      "personal": "Personal",
+      "startup": "Startup"
     }
   },
   "skills": {

@@ -11,7 +11,9 @@ import { LanguageSwitcher } from '@/components/features/LanguageSwitcher';
 import { type Locale } from '@/i18n/config';
 import { getMessages } from '@/i18n/loader';
 import { cn } from '@/lib/cn';
+import { downloadCV } from '@/lib/download';
 import { motion } from 'framer-motion';
+import { Download } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 // Dynamic import to avoid SSR issues with ThemeProvider
@@ -61,29 +63,29 @@ export function Header({ locale }: HeaderProps) {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, type: 'spring', stiffness: 100 }}
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         isScrolled
-          ? 'bg-surface/90 backdrop-blur-2xl border-b border-border shadow-2xl'
+          ? 'bg-surface/80 backdrop-blur-xl border-b border-border/50 shadow-sm'
           : 'bg-transparent'
       )}
     >
-      <nav className="max-w-7xl mx-auto px-4 py-4">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <button
             onClick={() => scrollToSection('#home')}
-            className="text-2xl font-bold text-gradient"
+            className="text-2xl font-bold text-text-primary hover:text-text-secondary transition-colors"
           >
             MI
           </button>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <button
                 key={link.href}
                 onClick={() => scrollToSection(link.href)}
-                className="text-text-secondary hover:text-text-primary transition-colors"
+                className="px-4 py-2 text-sm font-medium text-text-secondary hover:text-text-primary hover:bg-surface-hover rounded-lg transition-all"
               >
                 {link.label}
               </button>
@@ -91,14 +93,24 @@ export function Header({ locale }: HeaderProps) {
           </div>
 
           {/* Actions */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* CV Download Button - Desktop */}
+            <button
+              onClick={() => downloadCV(locale)}
+              className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg bg-transparent hover:bg-surface-hover border border-border hover:border-border text-text-secondary hover:text-text-primary transition-all font-medium text-sm"
+              aria-label={t.nav.cv}
+            >
+              <Download className="w-4 h-4" />
+              <span>{t.nav.cv}</span>
+            </button>
+
             <LanguageSwitcher currentLocale={locale} />
             <ThemeToggle />
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg bg-surface border border-border hover:border-accent-primary transition-colors"
+              className="md:hidden p-2 rounded-lg hover:bg-surface-hover transition-colors"
               aria-label="Toggle mobile menu"
               aria-expanded={isMobileMenuOpen}
             >
@@ -147,6 +159,18 @@ export function Header({ locale }: HeaderProps) {
                   {link.label}
                 </button>
               ))}
+              
+              {/* CV Download Button - Mobile */}
+              <button
+                onClick={() => {
+                  downloadCV(locale);
+                  setIsMobileMenuOpen(false);
+                }}
+                className="flex items-center gap-2 px-4 py-3 rounded-lg bg-transparent hover:bg-surface-hover border border-border hover:border-border text-text-secondary hover:text-text-primary transition-all font-medium justify-center mt-2"
+              >
+                <Download className="w-4 h-4" />
+                <span>{t.nav.cv}</span>
+              </button>
             </div>
           </motion.div>
         )}

@@ -46,52 +46,70 @@ export function Projects({ locale }: ProjectsProps) {
         return 'bg-green-500/20 text-green-400';
       case 'Personal':
         return 'bg-blue-500/20 text-blue-400';
+      case 'Startup':
+        return 'bg-pink-500/20 text-pink-400';
       default:
         return 'bg-surface text-text-tertiary';
     }
   };
 
   return (
-    <section id="projects" className="py-20 px-4">
+    <section id="projects" className="py-24 px-4 bg-surface/30">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
+          className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-text-primary">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-block px-4 py-2 rounded-full bg-accent-primary/10 border border-accent-primary/20 mb-4"
+          >
+            <span className="text-sm font-semibold text-accent-primary">Portfolio</span>
+          </motion.div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-4">
             {t.projects.title}
           </h2>
+          <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+            {locale === 'tr' ? 'Seçili projelerim ve çalışmalarım' : 'Featured projects and work'}
+          </p>
+        </motion.div>
 
-          {/* Enhanced Bento Grid Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-auto">
+        {/* Modern Grid Layout - All cards equal height */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {portfolioData.projects.map((project, index) => (
               <motion.div
                 key={`${project.title}-${index}`}
-                initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ 
-                  duration: 0.6, 
+                  duration: 0.5, 
                   delay: index * 0.1,
-                  type: 'spring',
-                  stiffness: 100
                 }}
-                className={cn(
-                  // First project is featured - larger
-                  index === 0 && 'md:col-span-2 lg:col-span-2 md:row-span-2',
-                  // Add random heights for more dynamic grid
-                  index === 2 && 'lg:row-span-2'
-                )}
               >
-                <Card className="h-full flex flex-col group overflow-hidden relative">
-                  <CardHeader>
-                    <div className="flex items-start justify-between gap-4 mb-3">
-                      <CardTitle>{project.title}</CardTitle>
+                <Card className="h-full flex flex-col group overflow-hidden relative border-border hover:border-accent-primary/50 transition-all duration-300">
+                  {/* Hover gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/0 via-transparent to-accent-secondary/0 opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+                  
+                  <CardHeader className="pb-4 relative">
+                    <div className="flex items-start justify-between gap-3 mb-4">
+                      <CardTitle className="text-xl leading-tight group-hover:text-accent-primary transition-colors">
+                        {project.title}
+                      </CardTitle>
                       <span
                         className={cn(
-                          'px-2 py-1 rounded-md text-xs font-medium border shrink-0',
+                          'px-3 py-1 rounded-full text-xs font-bold shrink-0 shadow-sm',
                           getStatusColor(project.status)
                         )}
                       >
@@ -102,7 +120,7 @@ export function Projects({ locale }: ProjectsProps) {
                     {/* Type badge */}
                     <span
                       className={cn(
-                        'inline-flex w-fit px-3 py-1 rounded-full text-sm font-medium',
+                        'inline-flex w-fit px-3 py-1.5 rounded-full text-xs font-bold tracking-wide shadow-sm',
                         getTypeColor(project.type)
                       )}
                     >
@@ -110,27 +128,38 @@ export function Projects({ locale }: ProjectsProps) {
                     </span>
                   </CardHeader>
 
-                  <CardContent className="flex-grow">
-                    <p className="text-text-secondary leading-relaxed mb-4">
-                      {project.description}
+                  <CardContent className="flex-grow flex flex-col gap-4 relative">
+                    <p className="text-text-secondary leading-relaxed text-sm">
+                      {typeof project.description === 'object' 
+                        ? project.description[locale] 
+                        : project.description}
                     </p>
 
                     {/* Tech stack */}
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map((tech) => (
+                    <div className="flex flex-wrap gap-2 mt-auto">
+                      {project.tech.slice(0, 5).map((tech) => (
                         <span
                           key={tech}
-                          className="px-2 py-1 text-xs rounded-md bg-surface border border-border text-text-tertiary"
+                          className="px-3 py-1.5 text-xs font-medium rounded-lg bg-surface-secondary/80 border border-border text-text-secondary hover:border-accent-primary/50 hover:text-text-primary transition-all"
                         >
                           {tech}
                         </span>
                       ))}
+                      {project.tech.length > 5 && (
+                        <span className="px-3 py-1.5 text-xs font-medium rounded-lg bg-surface-secondary/80 border border-border text-text-tertiary">
+                          +{project.tech.length - 5}
+                        </span>
+                      )}
                     </div>
                   </CardContent>
 
                   {project.link && (
-                    <CardFooter>
-                      <ExternalLink href={project.link} showIcon className="text-sm">
+                    <CardFooter className="pt-4 relative">
+                      <ExternalLink 
+                        href={project.link} 
+                        showIcon 
+                        className="text-sm font-semibold text-accent-primary hover:text-accent-secondary transition-colors inline-flex items-center gap-2 group-hover:gap-3 transition-all"
+                      >
                         {t.projects.viewProject}
                       </ExternalLink>
                     </CardFooter>
